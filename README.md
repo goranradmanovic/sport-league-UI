@@ -54,12 +54,12 @@ npm test
 
 ## App preview
 
-![Live-Matches](livematches.png)
+![Live-Matches](livematches.PNG)
 
 ---
 
-![League-Schedule](leagueschedule.png)
+![League-Schedule](leagueschedule.PNG)
 
 ---
 
-![League-Standings](leaguestandings.png)
+![League-Standings](leaguestandings.PNG)
