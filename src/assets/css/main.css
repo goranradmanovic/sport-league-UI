@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@300;400;500&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  --clr-blue: #025FEB; /* header background */
+  --clr-lightblue: #F6F7F7; /* footer background */
+  --clr-white: #FFFFFF; /* Font color in the menu */
+  --clr-darkgray: #182C62; /* Font color in page headings */
+  --clr-gray: #4B5C68; /* Font color in tables */
+  --clr-lightgray: #F6F7F7; /* Background color for even rows */
+  --clr-steelgray: #E4EDF2; /* Table header background and table border colors */
+
+  --font-small: .75rem; /* 12px */
+  --font-medium: .875rem; /* 14px */
+  --font-normal: 1rem; /* 16px */
+  --font-big: 1.5rem; /* 24px */
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 60px 1fr 40px;
+  grid-template-columns: 40px 1fr 40px;
+  grid-row-gap: 10px;
+  width: 100dvw;
+  height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Header section */
+.header {
+  grid-row: 1;
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-inline: 40px;
+  color: var(--clr-white);
+  background-color: var(--clr-blue);
+}
+
+.header__logo {
+  width: 110px;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+}
+
+.header__nav__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-normal);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 400ms ease-in-out;
+}
+
+.header__nav__link:first-child {
+  margin-right: 40px;
+}
+
+.header__nav__link:hover {
+  opacity: .8;
+}
+
+.header__nav__link.router-link-active.router-link-exact-active {
+  text-decoration: underline;
+}
+
+.header__nav__link > img {
+  height: 25px;
+  margin-right: 6px;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+}
+
+
+/* Pages section */
+
+/* Schedule page | Leaderboard page */
+.schedule, .leaderboard, .home {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.schedule__title, .leaderboard__title, .home__title {
+  margin-block: 60px 20px;
+  font-size: var(--font-big);
+  text-align: center;
+  color: var(--clr-darkgray);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--clr-gray);
+}
+
+.schedule__table > colgroup > .col__1 {
+  width: 10%;
+}
+
+.schedule__table > colgroup > .col__2 {
+  width: auto;
+}
+
+.schedule__table > colgroup > .col__3, .col__5 {
+  width: 25%;
+}
+
+.schedule__table > colgroup > .col__4 {
+  width: 10%;
+}
+
+.table > thead {
+  height: 40px;
+  font-size: var(--font-small);
+  background-color: var(--clr-steelgray);
+}
+
+.table > tbody > tr:nth-child(even) {
+  border-top: 1px solid var(--clr-steelgray);
+  border-bottom: 1px solid var(--clr-steelgray);
+  background-color: var(--clr-lightgray);
+}
+
+.table.schedule__table > thead > tr > th.th__stadion {
+  padding-left: 80px;
+  text-align: left;
+}
+
+.table.schedule__table > thead > tr > th.th__hometeam {
+  text-align: right;
+}
+
+.table.schedule__table > thead > tr > th.th__awayteam {
+  text-align: left;
+}
+
+.table > tbody > tr {
+  height: 70px;
+}
+
+.schedule__table > tbody > tr > td:nth-child(-n+2) {
+  font-size: var(--font-medium);
+}
+
+.schedule__table > tbody > tr > td:nth-child(n+3),
+.leaderboard__table > tbody > tr > td > div.td__teamname,
+.leaderboard__table > tbody > tr > td.td__points {
+  font-size: var(--font-normal);
+  font-weight: bold;
+}
+
+.td__datetime {
+  text-align: right;
+}
+
+.td__stadion {
+  padding-left: 80px;
+}
+
+.schedule__table > tbody > tr > td > div.td__hometeam,
+.schedule__table > tbody > tr > td > div.td__result,
+.schedule__table > tbody > tr > td > div.td__awayteam,
+.leaderboard__table > tbody > tr > td > div.td__teamname {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.schedule__table > tbody > tr > td > div.td__hometeam {
+  justify-content: flex-end;
+}
+
+.schedule__table > tbody > tr > td > div.td__result {
+  justify-content: center;
+}
+
+.table > tbody > tr > td > div > img {
+  display: inline-block;
+  width: 53px;
+  height: 37px;
+  object-fit: fill;
+  aspect-ratio: 1 / 1;
+}
+
+.schedule__table > tbody > tr > td > div.td__hometeam > img {
+  margin-left: 10px;
+}
+
+.schedule__table > tbody > tr > td > div.td__awayteam > img,
+.leaderboard__table > tbody > tr > td > div.td__teamname > img {
+  margin-right: 10px;
+}
+
+/* Leaderboard page */
+.leaderboard__table > tbody > tr > td.td__points {
+  font-size: var(--font-normal);
+  color: var(--clr-blue);
+}
+
+.leaderboard__table > colgroup > .col__1 {
+  width: 50%;
+}
+
+.leaderboard__table > colgroup > .col__2,
+.leaderboard__table > colgroup > .col__3,
+.leaderboard__table > colgroup > .col__4,
+.leaderboard__table > colgroup > .col__5 {
+  width: 12%;
+}
+
+.leaderboard__table > colgroup > .col__6 {
+  width: auto;
+}
+
+.table.leaderboard__table > tbody > tr:nth-child(even) {
+  background-color: unset;
+}
+
+.leaderboard__table > thead > tr > th.th__teamname {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.leaderboard__table > tbody > tr > td > div.td__teamname {
+  padding-left: 10px;
+}
+
+.leaderboard__table > tbody > tr > td:nth-child(-n+6) {
+  text-align: center;
+}
+
+.leaderboard__table > colgroup > .col__5,
+.leaderboard__table > thead > tr > th.th__goaldifference,
+.leaderboard__table > tbody > tr > td.td__goaldifference {
+  display: none;
+}
+
+/* home table  */
+
+.home__table--wrapper {
+  max-height: 74dvh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.home__table > colgroup > .col__1 {
+  width: 5%;
+}
+
+.home__table > colgroup > .col__2 {
+  width: 13%;
+}
+
+.home__table > colgroup > .col__3 {
+  width: auto;
+}
+
+.home__table > colgroup > .col__4, .col__6 {
+  width: 20%;
+}
+
+.home__table > colgroup > .col__5 {
+  width: 5%;
+}
+
+.home__table > thead > tr > th.th__country,
+.home__table > thead > tr > th.th__stadion {
+  padding-left: 20px;
+  text-align: left;
+}
+
+.home__table > thead > tr > th.th__hometeam,
+.home__table > thead > tr > th.th__awayteam {
+  padding-inline: 14px;
+}
+
+.home__table > thead > tr > th.th__hometeam {
+  text-align: right;
+}
+
+.home__table > thead > tr > th.th__awayteam {
+  text-align: left;
+}
+
+.home__table > tbody > tr > td.td__country,
+.home__table > tbody > tr > td.td__stadion {
+  padding-left: 20px;
+}
+
+.home__table > tbody > tr > td.td__country > div,
+.home__table > tbody > tr > td.td__stadion > div,
+.home__table > tbody > tr > td.td__stadion > div > span.league__name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.home__table > tbody > tr > td.td__country > div > img {
+  width: 33px;
+  height: 27px;
+  margin-right: 12px;
+}
+
+.home__table > tbody > tr > td.td__stadion > div {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.home__table > tbody > tr > td.td__stadion > div > span:first-child {
+  font-weight: 600;
+}
+
+.home__table > tbody > tr > td.td__stadion > div > span.league__name {
+  justify-content: flex-start;
+  margin-top: 6px;
+  font-size: var(--font-small);
+}
+
+
+.home__table > tbody > tr > td.td__stadion > div > span.league__name > img {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+}
+
+
+.home__table > tbody > tr > td > div.td__hometeam,
+.home__table > tbody > tr > td > div.td__result,
+.home__table > tbody > tr > td > div.td__awayteam  {
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  font-size: var(--font-normal);
+  font-weight: bold;
+}
+
+.home__table > tbody > tr > td > div.td__hometeam {
+  justify-content: flex-end;
+}
+
+.home__table > tbody > tr > td > div.td__result {
+  justify-content: center;
+}
+
+.home__table > tbody > tr > td > div.td__awayteam {
+  justify-content: flex-start;
+}
+
+.home__table > tbody > tr > td > div.td__hometeam > img,
+.home__table > tbody > tr > td > div.td__awayteam > img {
+  margin-inline: 4px;
+  object-fit: contain;
+}
+
+/* Spinner - Loader */
+.spinner > svg {
+  width: 100px;
+  height: 100px;
+}
+
+/* Not found page */
+.not_found, .spinner {
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not_found__title {
+  text-transform: uppercase;
+  color: var(--clr-gray);
+}
+
+
+/* Footer section */
+.footer {
+  grid-row: 3;
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 40px;
+  font-size: var(--font-medium);
+  font-weight: bold;
+  color: var(--clr-gray);
+  background-color: var(--clr-lightgray);
+}
+
+/* Media query */
+@media only screen and (max-width: 750px) {
+
+  /* schedule table, stadion cell */
+  .schedule__table > colgroup > .col__2,
+  .schedule__table > thead > tr > th.th__stadion,
+  .schedule__table > tbody > tr > td.td__stadion {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  /* schedule table, datetime cell, leaderboard table */
+  .schedule__table > colgroup > .col__1,
+  .schedule__table > thead > tr > th.th__datetime,
+  .schedule__table > tbody > tr > td.td__datetime,
+  .leaderboard__table > colgroup > .col__3,
+  .leaderboard__table > colgroup > .col__4,
+  .leaderboard__table > thead > tr > th.th__goalsfor,
+  .leaderboard__table > thead > tr > th.th__goalsagainst,
+  .leaderboard__table > tbody > tr > td.td__goalsfor,
+  .leaderboard__table > tbody > tr > td.td__goalsagainst {
+    display: none;
+  }
+
+  .leaderboard__table > colgroup > .col__5 {
+    display: table-column;
+  }
+
+  .leaderboard__table > thead > tr > th.th__goaldifference,
+  .leaderboard__table > tbody > tr > td.td__goaldifference {
+    display: table-cell;
+  }
+}
