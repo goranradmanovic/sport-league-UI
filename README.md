@@ -58,7 +58,7 @@ npm test
 
 ---
 
-![League-Schedule](leagueschedule.PNG)
+![League-Schedule](leagueschedul.PNG)
 
 ---
 
